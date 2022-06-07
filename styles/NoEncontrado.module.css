@@ -1,0 +1,18 @@
+.noEncontrado{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center;
+    
+}
+.noEncontrado a{
+    text-decoration: none;
+    color: var(--primary);
+
+}
+.noEncontrado h1{
+    
+    color:black;
+
+}

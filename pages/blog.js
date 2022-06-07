@@ -1,15 +1,47 @@
-import Layout from '../components/Layout'
 
-const Blog = () => {
+import Entrada from '../components/Entrada'
+import Layout from '../components/Layout'
+import styles from '../styles/Blog.module.css'
+
+const Blog = ({entradas}) => {
+   
   return (
     <Layout
     pagina='Blog'
     >
-    <h1>Desde Blog</h1>
+    <main>
+        <h2 className='heading'>Blog</h2>        
+
+        <div className= {`contenedor ${styles.blog}`}>
+          {entradas.map (entrada =>(
+            <Entrada
+              key={entrada.id}
+              entrada={entrada}
+            />
+          ))}
+             
+          
+        </div>
+    </main>
 
     
     </Layout>
   )
 }
+
+export async function getServerSideProps(){
+
+  const url = `${process.env.API_URL}/blogs`
+  const respuesta =  await fetch(url)
+  const entradas =  await respuesta.json()
+  console.log('el entradas',entradas)
+
+  return {
+    props:{
+      entradas
+    }
+  }
+}
+
 
 export default Blog
