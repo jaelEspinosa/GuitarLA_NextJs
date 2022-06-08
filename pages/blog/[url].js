@@ -8,11 +8,11 @@ import Link from 'next/link'
 
 const EntradaBlog = ({entrada}) => {
   const router = useRouter()
-  const {titulo, contenido, published_at, id, imagen }=entrada
+  const {titulo, contenido, published_at, id, imagen }=entrada[0]
   
   
    return (
-     <Layout>
+     <Layout pagina={titulo}>
     <main className="contenedor">
 
       <h1 className="heading">{titulo}</h1>
@@ -40,10 +40,10 @@ export async function getStaticPaths(){
   const respuesta = await fetch(url)
   const entradas = await respuesta.json()
   const paths = entradas.map(entrada => ({
-    params:{id: entrada.id}
+    params:{url: entrada.url}
     
   }))
-  
+  console.log(paths)
   return{
     paths,
     fallback: false
@@ -53,22 +53,22 @@ export async function getStaticPaths(){
 }
 
 
-export async function getStaticProps({params:{ id }}){
-  const url =`${process.env.API_URL}/blogs/${id}` 
-  const respuesta = await fetch(url)
+export async function getStaticProps({params:{ url }}){
+  const urlBlog =`${process.env.API_URL}/blogs?url=${url}` 
+  const respuesta = await fetch(urlBlog)
   const entrada = await respuesta.json()
     return {
     props:{
-      entrada
+      entrada:entrada
     }
   }
 }
 
 // utilizando getServerSideProps
 
-/* export async function getServerSideProps({query:{id}}){
-  const url =`${process.env.API_URL}/blogs/${id}` 
-  const respuesta = await fetch(url)
+/* export async function getServerSideProps({query:{url}}){
+  const urlBlog =`${process.env.API_URL}/blogs?url=${url}` 
+  const respuesta = await fetch(urlBlog)
   const entrada = await respuesta.json()
   
 
