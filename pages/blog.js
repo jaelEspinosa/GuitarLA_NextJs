@@ -34,8 +34,7 @@ export async function getServerSideProps(){
   const url = `${process.env.API_URL}/blogs`
   const respuesta =  await fetch(url)
   const entradas =  await respuesta.json()
-  console.log('el entradas',entradas)
-
+ 
   return {
     props:{
       entradas

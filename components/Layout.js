@@ -8,6 +8,9 @@ const Layout = ({children, pagina}) => {
         <Head>
             <title>GuitarLA - {pagina}</title>
             <meta name="description" content="Sitio Web de venta de guitarras"/>
+            
+            
+        
         </Head>
         <Header/>
         {children}
