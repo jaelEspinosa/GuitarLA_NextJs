@@ -1,0 +1,47 @@
+.cursos{
+    display: grid;
+    gap: 4rem;
+}
+
+@media(min-width:768px){
+    .cursos{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width:992px){
+    .cursos{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.enlace{
+    margin-top: 2rem;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--negro);
+    border: 2px solid var(--primary);
+    padding: 1rem 5rem;
+    transition: all 1s;
+}
+.enlace:hover{
+    background-color: var(--primary);
+    color: white;
+    transition: all 0.5s;
+}
+.precio{
+    color: var(--primary);
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .resumen{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+}
