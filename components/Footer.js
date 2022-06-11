@@ -11,8 +11,9 @@ const Footer = () => {
                   <Link href = '/nosotros'>Nosotros</Link>
                   <Link href = '/blog'>Blog</Link>
                   <Link href = '/tienda'>Tienda</Link>
+                  <Link href = '/cursos'>Cursos</Link>
             </nav>
-          <p className={styles.copyright}>Todos los Drechos Reservados</p>   
+          <p className={styles.copyright}>Todos los Derechos Reservados</p>   
         </div>
     </footer>
   )

@@ -45,3 +45,38 @@
     overflow: hidden;
 
 }
+@media (min-width:768px){
+    .cursoguit{
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        column-gap: 5rem;
+        align-items: center;
+    }
+}
+
+.precio{
+    color: var(--primary);
+    font-size: 6rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .contprecio input[type='submit']{
+    width: 100%;
+    
+    display: block;
+    background-color: var(--primary);
+    text-transform: uppercase;
+    padding: 1.8rem;
+    border: none;
+    color: var(--blanco);
+    font-weight: 700;
+    transition-property: background-color;
+    transition-duration: 2s;
+  }
+  .contprecio input[type='submit']:hover{
+    background-color: var(--negro);
+    transition: all 0.5s;
+    cursor: pointer;
+   
+  }  

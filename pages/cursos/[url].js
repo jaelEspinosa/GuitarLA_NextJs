@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../components/Layout'
 import Image from 'next/image'
+import styles from '../../styles/Cursos.module.css'
 
 const CursosGuitarraDetalle = ({curso}) => {
    const {titulo, descripcion, precio, imagen, url} = curso[0]
@@ -8,13 +9,17 @@ const CursosGuitarraDetalle = ({curso}) => {
       <Layout pagina = {titulo}>
       <main className='contenedor'>
        <h1 className='heading'>{titulo}</h1>
-      <article>
+      <article className={styles.cursoguit}>
             <Image layout='responsive' width={300} height={180} 
             src={imagen.url} alt={`imagen ${titulo}`}
             />
         <div>
             <p>{descripcion}</p>
-            <p>{precio} €</p>   
+            <div className={styles.contprecio}>
+                <p className={styles.precio}>{precio} €</p>   
+                <input type='submit' value ='Agregar al Carrito'></input>
+            </div>
+            
         </div>  
        
       </article>

@@ -6,7 +6,7 @@
 }
 
 .barra{
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,9 +20,10 @@
 }
 
 .navegacion{
-    margin-top: 5rem;
+    
+    margin: 5rem 2rem 0 2rem;
     display: flex;
-    gap:2rem;
+    gap:1.4rem;
 }
 @media (min-width: 768px){
     .navegacion{
@@ -36,6 +37,7 @@
     font-weight: 700;
     text-decoration: none;
     padding:2px 5px;
+
     
 }
 .navegacion a:hover{

@@ -2,12 +2,13 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import Layout from '../components/Layout'
 import Listado from '../components/Listado'
+import Spinner from '../components/Spinner'
 import styles from '../styles/Tienda.module.css'
 
 const Tienda = () => {
  const [guitarras, setGuitarras]=useState([])
  const [ordenar, setOrdenar]=useState('_sort=nombre')
- 
+ const [cargando, setCargando]=useState(false)
  
  const ordenarPorPrecio = (valor)=>{
 // valores del select para pedir a la API con el orden deseado
@@ -29,13 +30,17 @@ switch(valor){
 }
 
  useEffect(()=>{
+   setCargando(true)
     const obtenerDatos = async ()=>{
     const urlGuitar = `${process.env.NEXT_PUBLIC_API_URL}/guitarras?${ordenar}` // aplicamos el orden en la url con el operador de strapi
     const respuesta = await fetch(urlGuitar)
     const guitarrasApi = await respuesta.json()
     setGuitarras(guitarrasApi)
+    setCargando(false)
    }
+   
    obtenerDatos()
+   
  },[ordenar])   // cada vez que cambia el state de ordenar se vuelve a renderizar la pagina ordenada
  
   
@@ -43,6 +48,7 @@ switch(valor){
     <Layout
     pagina='Tienda'
     >
+   {cargando ? <Spinner/> : 
       <main className='contenedor'>
            <h1 className='heading'>Nuestra Colección</h1>
            <select className={styles.select} onChange={e=>ordenarPorPrecio(e.target.value)}>
@@ -53,7 +59,7 @@ switch(valor){
              <option value='nombreZa'>Nombre Z a A</option>
            </select>
            <Listado guitarras = {guitarras}/>
-      </main>
+      </main>} 
 
     
     </Layout>

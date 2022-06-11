@@ -1,18 +1,21 @@
 
+import BlogInicio from '../components/BlogInicio'
 import Curso from '../components/Curso'
+
 import Layout from '../components/Layout'
 import Listado from '../components/Listado'
 
 
-export default function Home( {guitarras,curso}) {
-  console.log('los cursos de inicio ',curso)
+
+export default function Home( {guitarras,curso,blog}) {
+  console.log('estos son los blog', blog)
   return (
     
-    
+     
      <Layout
      pagina = 'Incio'>
      <main className='contenedor'>
-        <h1 className='heading'>Nuestra colección</h1>
+        <h1 className='heading'>Destacadas</h1>
     <Listado
     guitarras = {guitarras}
      />
@@ -20,6 +23,8 @@ export default function Home( {guitarras,curso}) {
 
      </main>
      <Curso curso = {curso}/>
+    
+     <BlogInicio entradas={blog}/>
      </Layout>
       
     
@@ -30,24 +35,28 @@ export default function Home( {guitarras,curso}) {
 
 export async function getServerSideProps(){
 
-  const urlGuitarras = `${process.env.API_URL}/guitarras`
+  const urlGuitarras = `${process.env.API_URL}/guitarras?_limit=3`
   const urlCursos = `${process.env.API_URL}/cursos` 
+  const urlBlog = `${process.env.API_URL}/blogs?_limit=3` 
 
 
-  const [resGuitarras, resCursos]= await Promise.all([
+  const [resGuitarras, resCursos, resBlog]= await Promise.all([
     fetch(urlGuitarras),
-    fetch(urlCursos)
+    fetch(urlCursos),
+    fetch(urlBlog)
   ])
   
-  const [guitarras, curso] = await Promise.all([
+  const [guitarras, curso, blog] = await Promise.all([
     resGuitarras.json(),
-    resCursos.json()
+    resCursos.json(),
+    resBlog.json()
 
   ])
   return {
     props:{
       guitarras,
-      curso
+      curso,
+      blog
     }
   }
 }

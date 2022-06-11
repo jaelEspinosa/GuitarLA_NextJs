@@ -34,3 +34,8 @@ img {
   color: var(--primary);
   margin: 5rem 0;
 }
+.contspinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
