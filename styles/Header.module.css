@@ -3,6 +3,7 @@
     padding: 5rem 0;
     background-size: cover;
     background-position: 50%;
+    position: relative;
 }
 
 .barra{
@@ -37,6 +38,8 @@
     font-weight: 700;
     text-decoration: none;
     padding:2px 5px;
+    position: relative;
+    z-index: 1;
 
     
 }
@@ -45,4 +48,120 @@
     border-radius: 5px;    
     box-shadow: 2px 2px 4px gray;
     transition: all .4s;
+}
+.modelo{
+    color: var(--blanco);
+    margin-top: 5rem;
+    text-align: center;
+    animation-name: mostrarModelo;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+}
+
+@media(min-width:768px){
+    .modelo{
+        text-align: left;
+        width: 50%;
+    }
+}
+.modelo h2{
+    font-size: 5rem;
+
+}
+
+.modelo p:first-of-type{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 1.6rem;
+    
+    
+}
+.precio{
+    font-size: 5rem;
+    color: var(--primary);
+    font-weight: bolder;
+    line-height: 0;
+}
+.enlace{
+    margin-top: 2rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--blanco);
+    border: 2px solid var(--primary);
+    padding: 1rem 5rem;
+    transition: all 1s;
+}
+.enlace:hover{
+    background-color: var(--primary);
+    color: white;
+    transition: all 0.5s;
+}
+.guitarra{
+    display: none;
+
+}
+@media(min-width:992px){
+    .guitarra{
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom:-8px;
+      animation-name: mostrarImagen;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+    }
+}
+@keyframes mostrarImagen {
+    0%{
+      right: 100px;
+      opacity: 0;
+      transform: scale(50%);
+
+    }
+    60%{
+      opacity: 0;  
+    }
+    100%{
+      right: 0;
+      opacity: 1;
+      transform: scale(100%);
+
+    }
+}
+@keyframes mostrarLogo {
+    0%{
+     opacity: 0;
+     transform:scale(0%)
+    }
+
+    
+
+    100%{    
+     opacity: 1;
+     transform:scale(100%);
+    }
+}
+@keyframes mostrarModelo {
+    0%{
+     opacity: 0;
+     
+    }
+
+    
+
+    100%{    
+     opacity: 1;
+    
+    }
+}
+.logo{
+    
+    animation-name: mostrarLogo;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
 }

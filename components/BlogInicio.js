@@ -17,7 +17,7 @@ const BlogInicio = ({entradas}) => {
          
       
     </div>
-</main>
+ </main>
   )
 }
 
