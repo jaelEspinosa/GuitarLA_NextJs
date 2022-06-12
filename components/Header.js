@@ -24,7 +24,17 @@ const Header = ({guitarra}) => {
                   <Link href = '/blog'>Blog</Link>
                   <Link href = '/tienda'>Tienda</Link>
                   <Link href = '/cursos'>Cursos</Link>
+                  <Link href = '/carrito'>
+                      <a>
+                        <Image layout="fixed" width={20} height={15} src='/img/carrito.png' alt='imagen carrito'/>
+                      </a>
+                  </Link>
+                  
             </nav>
+            {/* <div className={styles.carrito}>
+           
+            </div> */}
+                
           </div>
            {guitarra && (
              <div className={styles.modelo}>

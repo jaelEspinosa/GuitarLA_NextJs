@@ -11,12 +11,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 @media(min-width:768px){
     .barra{
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        align-items:center;
+        justify-content: space-evenly;
     }
 }
 
@@ -30,18 +31,25 @@
     .navegacion{
         margin-top: 0;
     }
+    .navegacion a{
+       font-size:1.8rem;
+    }
 }
 .navegacion a{
     color: var(--blanco);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 700;
     text-decoration: none;
     padding:2px 5px;
     position: relative;
-    z-index: 1;
-
+    z-index: 1;    
+}
+@media (min-width: 768px){
     
+    .navegacion a{
+       font-size:1.5rem;
+    }
 }
 .navegacion a:hover{
     background-color: var(--primary);
@@ -49,6 +57,8 @@
     box-shadow: 2px 2px 4px gray;
     transition: all .4s;
 }
+
+
 .modelo{
     color: var(--blanco);
     margin-top: 5rem;

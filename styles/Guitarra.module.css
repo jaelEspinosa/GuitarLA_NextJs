@@ -75,3 +75,37 @@ flex-direction: column;
   cursor: pointer;
  
 }
+.button{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+@media (min-width:738px){
+  .button{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+.button button{
+  border: none;
+  background-color: var(--primary);
+  padding: 1rem;
+  color: var(--blanco);
+
+
+}
+.button button:hover{
+  background-color: var(--negro);
+  transition: all 0.5s;
+  cursor: pointer;
+}
