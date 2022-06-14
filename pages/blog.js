@@ -16,7 +16,7 @@ const Blog = ({entradas,carrito}) => {
         <div className= {`contenedor ${styles.blog}`}>
           {entradas.map (entrada =>(
             <Entrada
-              key={entrada._id}
+              key={entrada.id}
               entrada={entrada}
             />
           ))}

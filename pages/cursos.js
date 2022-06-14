@@ -13,7 +13,7 @@ const Cursos = ({cursos,carrito}) => {
          <div className={`contenedor ${styles.cursos}`}>
          {cursos.map (curso =>(
              <CursoCard 
-                 key = {curso._id}
+                 key = {curso.id}
                  curso={curso}
              />
          ))}
