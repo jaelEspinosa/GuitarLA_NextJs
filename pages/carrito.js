@@ -21,7 +21,7 @@ useEffect(()=>{
           {carrito.length === 0 ? 'Carrito vacio':(
 
             carrito.map(producto =>(
-              <div key={producto._id} className={styles.producto}>           
+              <div key={producto.id} className={styles.producto}>           
                 <div>
                 {producto.nombre ? <Image layout='fixed' width={60} height={130} src={producto.imagen} alt={`imagen ${producto.nombre}${producto.titulo}`}/>:
                  <Image layout='fixed' width={100} height={100} src={producto.imagen} alt={`imagen ${producto.nombre}${producto.titulo}`}/>
@@ -37,7 +37,7 @@ useEffect(()=>{
                             className={styles.select}
                             onChange={(e) =>actualizarCantidad({
                               cantidad: e.target.value,
-                              id: producto._id
+                              id: producto.id
                             })}
                       >
                 
@@ -60,7 +60,7 @@ useEffect(()=>{
                 height={30}
                 src='/img/boton-cerrar.png'
                 alt='cerrar'  
-                onClick={()=>borrarRegistro(producto._id)}
+                onClick={()=>borrarRegistro(producto.id)}
                 />
                 </div>
                 
@@ -84,7 +84,7 @@ useEffect(()=>{
                 <p className={styles.apagar}> Total(impuestos inc.):</p>
               </div>
               <div>
-                <p><span>{(total - (total/100)*21)} €</span></p>
+                <p><span>{((total - (total/100)*21)).toFixed(2)} €</span></p>
                 <p><span>{((total/100)*21).toFixed(2)} €</span></p>
                 <p><span className={styles.apagar}>{total} €</span></p>
               </div>
