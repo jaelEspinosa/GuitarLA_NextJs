@@ -7,12 +7,13 @@ import Layout from '../../components/Layout'
 
 import styles from '../../styles/guitarra.module.css'
 
-const Producto = ({guitarra, agregarCarrito}) => {
+const Producto = ({guitarra, agregarCarrito,carrito}) => {
     const{nombre, precio, imagen, url, descripcion,id}=guitarra[0]
     const[cantidad, setCantidad]=useState(1)
     const[addedCarrito, setAddedCarrito]=useState(false)
+    
     const handlesubmit = e => {
-      
+    
       e.preventDefault()
 
       // agregarlo al carrito
@@ -34,7 +35,8 @@ const Producto = ({guitarra, agregarCarrito}) => {
     
   return (
       <Layout
-      pagina = {`gitarra-${nombre}`}>
+      pagina = {`gitarra-${nombre}`}
+      carrito={carrito}>
     <div className={styles.guitarra}>
       
     <Image layout='responsive' width={180} height={350} src = {imagen.url} alt = {`Imagen Guitarra ${nombre}`} />
@@ -45,21 +47,25 @@ const Producto = ({guitarra, agregarCarrito}) => {
       <p className={styles.descripcion}>{descripcion}</p>
       <p className={styles.precio}>{precio}€</p>
         <form className={styles.formulario} onSubmit={handlesubmit}>
-          <label>Cantidad:</label>
-         <select value={cantidad}
-         onChange={ e => setCantidad(parseInt(e.target.value))} >
-            <option value='0'>--Seleccione--</option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-            <option value='7'>7</option>
-        </select> 
-        <input type='submit' value ='Agregar al Carrito'>
+        {!addedCarrito ?
+          <>
+            <label>Cantidad:</label>
+            <select value={cantidad}
+            onChange={ e => setCantidad(parseInt(e.target.value))} >
+                <option value='0'>--Seleccione--</option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+                <option value='7'>7</option>
+            </select> 
+            <input type='submit' value ='Agregar al Carrito'>
 
-        </input>
+            </input>
+        </>  
+        : <p className={styles.agregado}>¡Agregado al carrito!</p>}
       
         </form>
         {addedCarrito && <div className={styles.button}>

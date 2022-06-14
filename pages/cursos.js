@@ -2,10 +2,12 @@ import CursoCard from "../components/CursoCard"
 import Layout from "../components/Layout"
 import styles from '../styles/Cursos.module.css'
 
-const Cursos = ({cursos}) => {
-    console.log('Los cursos son.---',cursos)
+const Cursos = ({cursos,carrito}) => {
+    
   return (
-      <Layout pagina = 'Cursos'>
+      <Layout 
+      pagina = 'Cursos'
+      carrito={carrito}>
       <main>
          <h2 className="heading">Cursos Disponibles</h2>
          <div className={`contenedor ${styles.cursos}`}>
@@ -29,7 +31,7 @@ export async function getServerSideProps(){
     const urlCursos = `${process.env.API_URL}/cursosguitarras`
     const resultado = await fetch(urlCursos)
     const cursos = await resultado.json()
-    console.log('los cursos son ', cursos)
+    
 
     return {
         props:{

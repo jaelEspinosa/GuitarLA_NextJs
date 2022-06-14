@@ -5,7 +5,7 @@ import Listado from '../components/Listado'
 import Spinner from '../components/Spinner'
 import styles from '../styles/Tienda.module.css'
 
-const Tienda = () => {
+const Tienda = ({carrito}) => {
  const [guitarras, setGuitarras]=useState([])
  const [ordenar, setOrdenar]=useState('_sort=nombre')
  const [cargando, setCargando]=useState(false)
@@ -47,6 +47,7 @@ switch(valor){
   return (
     <Layout
     pagina='Tienda'
+    carrito={carrito}
     >
    {cargando ? <Spinner/> : 
       <main className='contenedor'>

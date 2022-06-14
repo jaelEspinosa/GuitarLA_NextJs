@@ -4,10 +4,11 @@ import styles from '../styles/Header.module.css'
 import {useRouter} from 'next/router'
 
 
-const Header = ({guitarra}) => {
+const Header = ({guitarra, carrito}) => {
+  
   
   const router = useRouter()
-  console.log('estoy en', router.pathname)
+ 
   return (
     <header className={styles.header}>
         <div className="contenedor">
@@ -15,6 +16,7 @@ const Header = ({guitarra}) => {
             <Link href='/'> 
             <a className={styles.logo}>
             <Image width ={400} height={100} src="/img/logo.svg" alt='logo'/>
+           
 
             </a>
             </Link>
@@ -27,6 +29,10 @@ const Header = ({guitarra}) => {
                   <Link href = '/carrito'>
                       <a>
                         <Image layout="fixed" width={20} height={15} src='/img/carrito.png' alt='imagen carrito'/>
+                        {carrito && ( carrito.length>0 ?
+                          <div className={styles.carritoLleno}>{carrito.length}</div>
+                          :null)}
+
                       </a>
                   </Link>
                   

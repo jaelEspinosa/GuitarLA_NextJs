@@ -6,13 +6,16 @@ import styles from '../../styles/Entrada.module.css'
 import Link from 'next/link'
 
 
-const EntradaBlog = ({entrada}) => {
+const EntradaBlog = ({entrada,carrito}) => {
   const router = useRouter()
   const {titulo, contenido, published_at, id, imagen }=entrada[0]
   
   
    return (
-     <Layout pagina={titulo}>
+     <Layout 
+     pagina={titulo}
+     carrito={carrito}
+     >
     <main className="contenedor">
 
       <h1 className="heading">{titulo}</h1>
@@ -43,7 +46,7 @@ export async function getStaticPaths(){
     params:{url: entrada.url}
     
   }))
-  console.log(paths)
+  
   return{
     paths,
     fallback: false

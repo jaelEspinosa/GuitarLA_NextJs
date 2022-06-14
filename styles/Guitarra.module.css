@@ -99,7 +99,7 @@ flex-direction: column;
 .button button{
   border: none;
   background-color: var(--primary);
-  padding: 1rem;
+  padding: 1rem 2rem;;
   color: var(--blanco);
 
 
@@ -108,4 +108,12 @@ flex-direction: column;
   background-color: var(--negro);
   transition: all 0.5s;
   cursor: pointer;
+}
+.agregado{
+  text-transform: uppercase;
+  background-color: var(--primary);
+  color:green;
+  text-align: center;
+  padding:1rem;
+  
 }

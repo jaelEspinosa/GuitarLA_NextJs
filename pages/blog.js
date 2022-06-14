@@ -3,11 +3,12 @@ import Entrada from '../components/Entrada'
 import Layout from '../components/Layout'
 import styles from '../styles/Blog.module.css'
 
-const Blog = ({entradas}) => {
+const Blog = ({entradas,carrito}) => {
    
   return (
     <Layout
     pagina='Blog'
+    carrito={carrito}
     >
     <main>
         <h2 className='heading'>Blog</h2>        

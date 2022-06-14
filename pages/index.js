@@ -7,14 +7,15 @@ import Listado from '../components/Listado'
 
 
 
-export default function Home( {guitarras,curso,entradas}) {
+export default function Home( {guitarras,curso,entradas,carrito}) {
   
   return (
     
      
      <Layout
      pagina = 'Incio'
-     guitarra={guitarras[3]}>
+     guitarra={guitarras[3]}
+     carrito={carrito}>
      <main className='contenedor'>
         <h1 className='heading'>Destacadas</h1>
     <Listado

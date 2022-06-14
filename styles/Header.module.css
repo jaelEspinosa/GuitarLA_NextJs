@@ -175,3 +175,17 @@
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;
 }
+.carritoLleno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding:2px;
+    position: absolute;
+    color:var(--blanco);
+    background-color: brown;
+    border-radius: 20px;
+    top:-7px;
+    right: -7px;
+}
