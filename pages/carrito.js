@@ -21,7 +21,7 @@ useEffect(()=>{
           {carrito.length === 0 ? 'Carrito vacio':(
 
             carrito.map(producto =>(
-              <div key={producto.id} className={styles.producto}>           
+              <div key={producto._id} className={styles.producto}>           
                 <div>
                 {producto.nombre ? <Image layout='fixed' width={60} height={130} src={producto.imagen} alt={`imagen ${producto.nombre}${producto.titulo}`}/>:
                  <Image layout='fixed' width={100} height={100} src={producto.imagen} alt={`imagen ${producto.nombre}${producto.titulo}`}/>
@@ -37,7 +37,7 @@ useEffect(()=>{
                             className={styles.select}
                             onChange={(e) =>actualizarCantidad({
                               cantidad: e.target.value,
-                              id: producto.id
+                              id: producto._id
                             })}
                       >
                 
@@ -60,7 +60,7 @@ useEffect(()=>{
                 height={30}
                 src='/img/boton-cerrar.png'
                 alt='cerrar'  
-                onClick={()=>borrarRegistro(producto.id)}
+                onClick={()=>borrarRegistro(producto._id)}
                 />
                 </div>
                 
