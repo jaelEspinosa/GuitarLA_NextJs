@@ -19,7 +19,7 @@ const Header = ({guitarra, carrito}) => {
             </a>
             </Link>
             <div className={styles.buscador} >
-          <Image layout="fixed" width={25} height={25} src='/img/lupa.png'/>
+          <Image layout="fixed" width={25} height={25} src='/img/lupa.png' alt='lupa'/>
           <input type = 'text' placeholder="busca tu Producto/Curso"/>
         </div>
             <nav className={styles.navegacion}>

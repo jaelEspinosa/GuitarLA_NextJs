@@ -4,6 +4,11 @@ import Layout from '../components/Layout'
 import styles from '../styles/Carrito.module.css'
 
 const Carrito = ({carrito,actualizarCantidad,borrarRegistro}) => {
+  console.log('desde carrito component', carrito)
+  if (carrito.length === 0){
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+    
+  }
 const [total, setTotal]= useState(0)   
 
 useEffect(()=>{
