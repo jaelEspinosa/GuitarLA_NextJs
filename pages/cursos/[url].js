@@ -64,7 +64,7 @@ const CursosGuitarraDetalle = ({curso,carrito, agregarCarrito}) => {
 
 
 export async function getServerSideProps({query:{url}}){
-    const urlCurso = `${process.env.API_URl}/cursosguitarras?url=${url}`
+    const urlCurso = `${process.env.API_URL}/cursosguitarras?url=${url}`
     const respuesta = await fetch(urlCurso)
     const curso = await respuesta.json()
    
