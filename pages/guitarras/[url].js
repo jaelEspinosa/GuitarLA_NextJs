@@ -86,7 +86,7 @@ const Producto = ({guitarra, agregarCarrito,carrito}) => {
 }
 
 export async function getServerSideProps({query:{url}}){
-    const urlGuitarra = `${process.env.API_URl}/guitarras?url=${url}`
+    const urlGuitarra = `${process.env.API_URL}/guitarras?url=${url}`
     const respuesta = await fetch(urlGuitarra)
     const guitarra = await respuesta.json()
    
