@@ -10,7 +10,7 @@ const BlogInicio = ({entradas}) => {
     <div className= {`contenedor ${styles.blog}`}>
       {entradas.map (entrada =>(
         <Entrada
-          key={entrada.id}
+          key={entrada._id}
           entrada={entrada}
         />
       ))}

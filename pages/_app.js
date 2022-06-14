@@ -19,9 +19,9 @@ if (carrito.length !== 0){
 
   const agregarCarrito = producto =>{
 
-     if (carrito.some(articulo => articulo.id === producto.id)){
+     if (carrito.some(articulo => articulo._id === producto._id)){
       const carritoActualizado = carrito.map(articulo =>{
-        if(articulo.id === producto.id){
+        if(articulo._id === producto._id){
           articulo.cantidad = articulo.cantidad+producto.cantidad
         }
         return articulo
@@ -37,7 +37,7 @@ if (carrito.length !== 0){
 
   const actualizarCantidad = producto => {
     const carritoActualizado = carrito.map(articulo =>{
-      if(articulo.id === producto.id){
+      if(articulo._id === producto._id){
         articulo.cantidad = producto.cantidad
       }
       return articulo
@@ -48,7 +48,7 @@ if (carrito.length !== 0){
   const borrarRegistro = id => {
      const alerta = confirm('Seguro que quieres Borrar?')
      if (alerta){
-      const carritoActualizado = carrito.filter(articulo => articulo.id !== id)
+      const carritoActualizado = carrito.filter(articulo => articulo._id !== id)
       setCarrito(carritoActualizado)
      }
      return
