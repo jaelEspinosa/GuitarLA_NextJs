@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Layout from '../../components/Layout'
 
 
-import styles from '../../styles/guitarra.module.css'
+import styles from '../../styles/Guitarra.module.css'
 
 const Producto = ({guitarra, agregarCarrito,carrito}) => {
     const{nombre, precio, imagen, url, descripcion,id}=guitarra[0]
