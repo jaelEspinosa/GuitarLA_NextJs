@@ -96,3 +96,16 @@
 .apagar{
     font-size: 2.2rem!important;
 }
+.button{
+    border: none;
+    background-color: var(--primary);
+    padding: 1rem 2rem;;
+    color: var(--blanco);
+  
+  
+  }
+  .button:hover{
+    background-color: var(--negro);
+    transition: all 0.5s;
+    cursor: pointer;
+  }

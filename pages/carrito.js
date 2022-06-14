@@ -92,7 +92,7 @@ useEffect(()=>{
               </div>
                 
             </div>
-            
+            <button className={styles.button} type='button'>Confirmar pedido y pagar</button>
             </>
 
           ): <p>Carrito vacio</p>}
