@@ -50,6 +50,9 @@ if (carrito.length !== 0){
      if (alerta){
       const carritoActualizado = carrito.filter(articulo => articulo.id !== id)
       setCarrito(carritoActualizado)
+      
+      
+      
      }
      return
     }

@@ -16,10 +16,12 @@ const Header = ({guitarra, carrito}) => {
             <Link href='/'> 
             <a className={styles.logo}>
             <Image width ={400} height={100} src="/img/logo.svg" alt='logo'/>
-           
-
             </a>
             </Link>
+            <div className={styles.buscador} >
+          <Image layout="fixed" width={25} height={25} src='/img/lupa.png'/>
+          <input type = 'text' placeholder="busca tu Producto/Curso"/>
+        </div>
             <nav className={styles.navegacion}>
                   <Link href = '/'>Inicio</Link>
                   <Link href = '/nosotros'>Nosotros</Link>
@@ -37,9 +39,7 @@ const Header = ({guitarra, carrito}) => {
                   </Link>
                   
             </nav>
-            {/* <div className={styles.carrito}>
-           
-            </div> */}
+          
                 
           </div>
            {guitarra && (
@@ -61,6 +61,7 @@ const Header = ({guitarra, carrito}) => {
           <Image layout="fixed" width={500} height={1200} src = '/img/header_guitarra.png' alt='imagen guitarra'/>
           </div>
         )}
+      
     </header>
   )
 }
