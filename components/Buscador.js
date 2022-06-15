@@ -45,11 +45,11 @@ const Buscador = ({busqueda,
             <p>{item.nombre}{item.titulo}</p>
             
            {item.nombre && <Link href={`/guitarras/${item.url}`}>
-            <p className={styles.enlace}>Ver</p>
+            <p onClick={()=>setBusqueda('')} className={styles.enlace}>Ver</p>
              
             </Link>}
             {item.titulo &&<Link href={`/cursos/${item.url}`}>
-            <p className={styles.enlace}>Ver</p>
+            <p onClick={()=>setBusqueda('')} className={styles.enlace}>Ver</p>
              
             </Link> }
            

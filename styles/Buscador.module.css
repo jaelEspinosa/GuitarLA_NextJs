@@ -1,6 +1,8 @@
 
 .contBuscador{
-    max-height: 400px;
+    padding:1rem;
+    
+    max-height: 300px;
     overflow-y: scroll;
     position:relative;
 }
