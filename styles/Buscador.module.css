@@ -1,0 +1,55 @@
+
+.contBuscador{
+    max-height: 400px;
+    overflow-y: scroll;
+    position:relative;
+}
+.contBuscador p{
+    font-size: 1.5rem;
+
+}
+@media(min-width:738px){
+    
+    .contBuscador{
+        padding: 2rem;
+        max-height: 450px;
+        overflow-y: scroll;
+    }
+    .contBuscador::-webkit-scrollbar{
+        width: 3px;
+        
+    }
+    .contBuscador::-webkit-scrollbar-thumb{
+        background:rgb(146, 84, 33);
+        border-radius: 5px;
+    }
+}
+
+.cardBuscador{
+    display: flex;
+    padding:2rem;
+    gap:5rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(146, 84, 33);
+}
+.cardBuscador:last-of-type{
+    border: none;
+}
+.enlace:hover{
+    cursor: pointer;
+    color:brown;
+    text-shadow: 5px 5px 8px rgb(51, 26, 8);
+    
+    transition: 0.3s;
+}
+
+.cerrar{
+    position:absolute;
+    top:2rem;
+    right: 2rem;
+}
+.cerrar:hover{
+   cursor: pointer;
+   
+}

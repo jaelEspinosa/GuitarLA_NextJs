@@ -2,10 +2,21 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from '../styles/Header.module.css'
 import {useRouter} from 'next/router'
+import { useState } from "react"
+import Buscador from "./Buscador"
 
 
-const Header = ({guitarra, carrito}) => {
-  
+const Header = ({guitarra, 
+            carrito, 
+            guitarrasBuscador, 
+            cursosBuscador,
+            busqueda,
+            setBusqueda
+          }) => {
+
+
+/* const [busqueda, setBusqueda]=useState('') */  
+
   
   const router = useRouter()
  
@@ -18,10 +29,21 @@ const Header = ({guitarra, carrito}) => {
             <Image width ={400} height={100} src="/img/logo.svg" alt='logo'/>
             </a>
             </Link>
-            <div className={styles.buscador} >
+            {router.pathname === '/' ? <div className={styles.buscador} >
           <Image layout="fixed" width={25} height={25} src='/img/lupa.png' alt='lupa'/>
-          <input type = 'text' placeholder="busca tu Producto/Curso"/>
-        </div>
+          <input type = 'text' placeholder="busca tu Producto/Curso"
+            onChange={e=>setBusqueda(e.target.value)}
+          />
+          {busqueda ? <div className={styles.busquedaok}>
+            <Buscador 
+            busqueda = {busqueda} 
+            guitarrasBuscador = {guitarrasBuscador}
+            cursosBuscador = {cursosBuscador}
+            setBusqueda={setBusqueda}
+            />
+          </div>:null}
+            </div>:null}
+
             <nav className={styles.navegacion}>
                   <Link href = '/'>Inicio</Link>
                   <Link href = '/nosotros'>Nosotros</Link>
@@ -65,5 +87,31 @@ const Header = ({guitarra, carrito}) => {
     </header>
   )
 }
+/* export async function getServerSideProps(){
+
+  const urlGuitarras = `${process.env.API_URL}/guitarras`
+  const urlCursos = `${process.env.API_URL}/cursos` 
+ 
+ const [resGuitarras, resCursos] = await Promise.all([
+     fetch(urlGuitarras),
+     fetch(urlCursos)
+ ])
+ 
+ const [guitarras, cursos] = await Promise.all([
+     resGuitarras.json(),
+     resCursos.json()
+ ])
+ console.log('guitarras',guitarras)
+ console.log('guitarras',cursos)
+ 
+ return{
+     props:{
+         guitarras,
+         cursos
+ 
+     }
+ }
+ 
+ } */
 
 export default Header

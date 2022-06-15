@@ -2,7 +2,15 @@ import  Head  from "next/head"
 import Footer from "./Footer"
 import Header from "./Header" 
 
-const Layout = ({children, pagina,guitarra,carrito}) => {
+const Layout = ({children, 
+        pagina,
+        guitarra,
+        carrito,
+        guitarrasBuscador,
+        cursosBuscador,
+        busqueda,
+        setBusqueda}) => {
+ 
   return (
     <div>
         <Head>
@@ -15,6 +23,10 @@ const Layout = ({children, pagina,guitarra,carrito}) => {
         <Header
           guitarra={guitarra}
           carrito={carrito}
+          guitarrasBuscador={guitarrasBuscador}
+          cursosBuscador={cursosBuscador}
+          busqueda={busqueda}
+          setBusqueda={setBusqueda}
         />
         {children} 
         <Footer/>

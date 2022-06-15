@@ -4,6 +4,7 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
 const [carrito, setCarrito]=useState([])
+const [busqueda, setBusqueda]=useState('')
 
 useEffect(()=>{
 const carritoLS = JSON.parse(localStorage.getItem("carrito")) ?? [];
@@ -59,6 +60,7 @@ if (carrito.length !== 0){
      }
      return
     }
+    
 
 
   return <Component {...pageProps}
@@ -66,6 +68,8 @@ if (carrito.length !== 0){
   agregarCarrito = {agregarCarrito}
   actualizarCantidad = {actualizarCantidad}
   borrarRegistro = {borrarRegistro}
+  busqueda={busqueda}
+  setBusqueda={setBusqueda}
    />
 }
 
