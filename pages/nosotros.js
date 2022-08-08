@@ -3,6 +3,8 @@ import Layout from '../components/Layout'
 import Image from 'next/image'
 import styles from '../styles/Nosotros.module.css'
 const Nosotros = ({carrito}) => {
+
+  
   return (
     <Layout
     pagina='Nosotros'

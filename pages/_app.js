@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import '../styles/normalize.css'
 import '../styles/globals.css'
 
+
 function MyApp({ Component, pageProps }) {
 const [carrito, setCarrito]=useState([])
 const [busqueda, setBusqueda]=useState('')
@@ -71,6 +72,7 @@ if (carrito.length !== 0){
   busqueda={busqueda}
   setBusqueda={setBusqueda}
    />
+  
 }
 
 export default MyApp

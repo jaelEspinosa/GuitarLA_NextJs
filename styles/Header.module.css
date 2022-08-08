@@ -215,9 +215,11 @@
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     width: 95vw;
+    max-width: 351px;
     height: 50vh;
+    max-height: 301px;
     background-color: rgba(68, 46, 17, 0.863);    
-    top: 100px;
+    top: 35px;
     left: -30px;
     color: white;
     border-radius: 8px;
@@ -226,7 +228,9 @@
 @media(min-width:768px){
     .busquedaok{
         width: 40vw;
-        height: 50vh;
+        max-width: 351px;
+        height: 70vh;
+        max-height: 450px;
         animation-name: busqueda-media;
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;

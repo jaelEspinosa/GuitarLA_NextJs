@@ -7,6 +7,7 @@ import Listado from '../components/Listado'
 
 
 
+
 export default function Home( {guitarras,
                   curso,
                   entradas,
@@ -41,7 +42,7 @@ export default function Home( {guitarras,
     
      <BlogInicio entradas={entradas}/>
      </Layout>
-      
+     
     
   )
 }
