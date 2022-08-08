@@ -14,7 +14,7 @@
     
     .contBuscador{
         padding: 2rem;
-        max-height: 450px;
+        max-height: 360px;
         overflow-y: scroll;
     }
     .contBuscador::-webkit-scrollbar{
