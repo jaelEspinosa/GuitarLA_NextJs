@@ -1,25 +1,63 @@
 
+import { useEffect, useState } from 'react'
 import BlogInicio from '../components/BlogInicio'
 import Curso from '../components/Curso'
 
 import Layout from '../components/Layout'
 import Listado from '../components/Listado'
+import Spinner from '../components/Spinner'
 
 
 
 
-export default function Home( {guitarras,
-                  curso,
-                  entradas,
-                  carrito,
-                  cursosBuscador,
-                  guitarrasBuscador,
-                  busqueda,
-                  setBusqueda}) 
-    {   
+export default function Home({carrito, busqueda, setBusqueda}){
+
+const [guitarras, setGuitarras] = useState([])
+const [curso, setCurso] = useState()
+const [entradas, setEntradas] = useState([])
+const [cursosBuscador, setCursosBuscador] = useState([])
+const [guitarrasBuscador, setGuitarrasBuscador] = useState([])
+
+const getData = async ()=>{
+
+  const urlGuitarras = `${process.env.NEXT_PUBLIC_API_URL}/guitarras?_limit=6`
+  const urlCursos = `${process.env.NEXT_PUBLIC_API_URL}/cursos` 
+  const urlBlog = `${process.env.NEXT_PUBLIC_API_URL}/blogs?_limit=3` 
+  const urlGuitarrasBuscador = `${process.env.NEXT_PUBLIC_API_URL}/guitarras`
+  const urlCursosBuscador = `${process.env.NEXT_PUBLIC_API_URL}/cursosguitarras`
+
+
+  const [resGuitarras, resCursos, resBlog, resCursosBuscador, resGuitarrasBuscador]= await Promise.all([
+    fetch(urlGuitarras),
+    fetch(urlCursos),
+    fetch(urlBlog),
+    fetch(urlCursosBuscador),
+    fetch(urlGuitarrasBuscador)
+  ])
+  
+  const [guitarras, curso, entradas, cursosBuscador, guitarrasBuscador] = await Promise.all([
+    resGuitarras.json(),
+    resCursos.json(),
+    resBlog.json(),
+    resCursosBuscador.json(),
+    resGuitarrasBuscador.json()
+    ])
+
+    setGuitarras(guitarras)
+    setCurso(curso)
+    setEntradas(entradas)
+    setCursosBuscador(cursosBuscador)
+    setGuitarrasBuscador(guitarrasBuscador)
+}
+
+  useEffect(() => {
+    getData()
+  
+  }, [])
+      
+  if(!guitarras[3])return <Spinner />    
   return (
-    
-     
+
      <Layout
      pagina = 'Incio'
      guitarra={guitarras[3]}
@@ -27,7 +65,8 @@ export default function Home( {guitarras,
      cursosBuscador={cursosBuscador}
      guitarrasBuscador={guitarrasBuscador}
      busqueda={busqueda}
-     setBusqueda={setBusqueda}>
+     setBusqueda={setBusqueda}
+  >
 
      <main className='contenedor'>
         <h1 className='heading'>Destacadas</h1>
@@ -38,7 +77,7 @@ export default function Home( {guitarras,
 
 
      </main>
-     <Curso curso = {curso}/>
+      <Curso curso = {curso}/>
     
      <BlogInicio entradas={entradas}/>
      </Layout>
@@ -49,7 +88,7 @@ export default function Home( {guitarras,
 
 //multiples peticiones a la vez en paralelo a la api
 
-export async function getServerSideProps(){
+/* export async function getServerSideProps(){
 
   const urlGuitarras = `${process.env.API_URL}/guitarras?_limit=6`
   const urlCursos = `${process.env.API_URL}/cursos` 
@@ -84,4 +123,4 @@ export async function getServerSideProps(){
       guitarrasBuscador
     }
   }
-}
+} */

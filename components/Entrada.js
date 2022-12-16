@@ -4,7 +4,7 @@ import styles from '../styles/Entrada.module.css'
 
 
 import {formatearFecha}from '../helpers'
-const Entrada = ({entrada}) => {
+const Entrada = ({ entrada }) => {
   const{contenido, url, imagen, resumen, titulo, published_at} = entrada
   return (
     <article>

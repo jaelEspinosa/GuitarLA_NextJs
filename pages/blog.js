@@ -1,10 +1,26 @@
 
+import { useEffect, useState } from 'react'
 import Entrada from '../components/Entrada'
 import Layout from '../components/Layout'
+import Spinner from '../components/Spinner'
 import styles from '../styles/Blog.module.css'
 
-const Blog = ({entradas,carrito}) => {
-   
+const Blog = ({ carrito }) => {
+ const [entradas, setEntradas] = useState()
+
+ const getData = async()=>{
+    const urlEntradas = `${process.env.NEXT_PUBLIC_API_URL}/blogs`
+    const resultado = await fetch(urlEntradas)
+    const resEntradas = await resultado.json()
+    setEntradas(resEntradas)
+ 
+  }  
+ 
+  useEffect(() => {
+    getData()
+    
+  }, [])   
+  if(!entradas) return <Spinner />
   return (
     <Layout
     pagina='Blog'
@@ -30,7 +46,7 @@ const Blog = ({entradas,carrito}) => {
   )
 }
 
-export async function getServerSideProps(){
+/* export async function getServerSideProps(){
 
   const url = `${process.env.API_URL}/blogs`
   const respuesta =  await fetch(url)
@@ -41,7 +57,7 @@ export async function getServerSideProps(){
       entradas
     }
   }
-}
+} */
 
 
 export default Blog
