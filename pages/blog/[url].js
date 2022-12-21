@@ -16,7 +16,7 @@ const EntradaBlog = ({ carrito }) => {
 
   useEffect(() => {
     const getData = async ()=>{
-          const urlBlogs = `${process.env.NEXT_PUBLIC_API_URL}/blogs?url=${url}`
+          const urlBlogs = `${process.env.NEXT_PUBLIC_API_URL}/blogs/${url}`
           const respuesta = await fetch(urlBlogs)
           const resBlogs = await respuesta.json()
           

@@ -20,7 +20,7 @@ const [guitarrasBuscador, setGuitarrasBuscador] = useState([])
 
 const getData = async ()=>{
 
-  const urlGuitarras = `${process.env.NEXT_PUBLIC_API_URL}/guitarras?_limit=6`
+  const urlGuitarras = `${process.env.NEXT_PUBLIC_API_URL}/guitarras`
   const urlCursos = `${process.env.NEXT_PUBLIC_API_URL}/cursos` 
   const urlBlog = `${process.env.NEXT_PUBLIC_API_URL}/blogs?_limit=3` 
   const urlGuitarrasBuscador = `${process.env.NEXT_PUBLIC_API_URL}/guitarras`
@@ -43,7 +43,7 @@ const getData = async ()=>{
     resGuitarrasBuscador.json()
     ])
 
-    setGuitarras(guitarras)
+    setGuitarras(guitarras.slice(0, 6))
     setCurso(curso)
     setEntradas(entradas)
     setCursosBuscador(cursosBuscador)
@@ -54,7 +54,7 @@ const getData = async ()=>{
     getData()
   
   }, [])
-      
+  
   if(!guitarras[3])return <Spinner />    
   return (
 
@@ -77,7 +77,7 @@ const getData = async ()=>{
 
 
      </main>
-      <Curso curso = {curso}/>
+      <Curso curso = {curso[0]}/>
     
      <BlogInicio entradas={entradas}/>
      </Layout>
@@ -86,41 +86,3 @@ const getData = async ()=>{
   )
 }
 
-//multiples peticiones a la vez en paralelo a la api
-
-/* export async function getServerSideProps(){
-
-  const urlGuitarras = `${process.env.API_URL}/guitarras?_limit=6`
-  const urlCursos = `${process.env.API_URL}/cursos` 
-  const urlBlog = `${process.env.API_URL}/blogs?_limit=3` 
-  const urlGuitarrasBuscador = `${process.env.API_URL}/guitarras`
-  const urlCursosBuscador = `${process.env.API_URL}/cursosguitarras`
-
-
-  const [resGuitarras, resCursos, resBlog, resCursosBuscador, resGuitarrasBuscador]= await Promise.all([
-    fetch(urlGuitarras),
-    fetch(urlCursos),
-    fetch(urlBlog),
-    fetch(urlCursosBuscador),
-    fetch(urlGuitarrasBuscador)
-  ])
-  
-  const [guitarras, curso, entradas, cursosBuscador, guitarrasBuscador] = await Promise.all([
-    resGuitarras.json(),
-    resCursos.json(),
-    resBlog.json(),
-    resCursosBuscador.json(),
-    resGuitarrasBuscador.json()
-    
-
-  ])
-  return {
-    props:{
-      guitarras,
-      curso,
-      entradas,
-      cursosBuscador,
-      guitarrasBuscador
-    }
-  }
-} */

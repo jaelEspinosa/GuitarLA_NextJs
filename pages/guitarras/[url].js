@@ -20,7 +20,7 @@ const Producto = ({ agregarCarrito, carrito }) => {
     
     useEffect(() => {
       const getData = async ()=>{
-            const urlCurso = `${process.env.NEXT_PUBLIC_API_URL}/guitarras?url=${url}`
+            const urlCurso = `${process.env.NEXT_PUBLIC_API_URL}/guitarras/${url}`
             const respuesta = await fetch(urlCurso)
             const resGuitarra = await respuesta.json()
             

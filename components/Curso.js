@@ -1,7 +1,7 @@
 import styles from '../styles/Curso.module.css'
 import Link from 'next/link'
 
-const Curso = ({curso}) => {
+const Curso = ({ curso }) => {
     const { titulo,descripcion, imagen } = curso
   return (
     <section>

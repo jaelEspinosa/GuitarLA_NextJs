@@ -14,7 +14,7 @@ const CursosGuitarraDetalle = ({carrito, agregarCarrito}) => {
 
 useEffect(() => {
   const getData = async ()=>{
-        const urlCurso = `${process.env.NEXT_PUBLIC_API_URL}/cursosguitarras?url=${url}`
+        const urlCurso = `${process.env.NEXT_PUBLIC_API_URL}/cursosguitarras/${url}`
         const respuesta = await fetch(urlCurso)
         const rescurso = await respuesta.json()
         
