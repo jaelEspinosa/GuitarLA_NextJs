@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import Spinner from "../components/Spinner"
 import styles from '../styles/Cursos.module.css'
 
-const Cursos = ({carrito}) => {
+const Cursos = ({carrito, }) => {
 
 const [cursos, setCursos] = useState()
 
@@ -26,7 +26,9 @@ const [cursos, setCursos] = useState()
   return (
       <Layout 
       pagina = 'Cursos'
-      carrito={carrito}>
+      carrito={carrito}
+      
+      >
       <main>
          <h2 className="heading">Cursos Disponibles</h2>
          <div className={`contenedor ${styles.cursos}`}>

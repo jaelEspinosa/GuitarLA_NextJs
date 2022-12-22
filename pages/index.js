@@ -1,4 +1,5 @@
 
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import BlogInicio from '../components/BlogInicio'
 import Curso from '../components/Curso'
@@ -10,7 +11,18 @@ import Spinner from '../components/Spinner'
 
 
 
-export default function Home({carrito, busqueda, setBusqueda}){
+export default function Home({ carrito, busqueda, setBusqueda, setCarrito }){
+
+const router = useRouter()  
+
+useEffect(() => {
+ if (router.query.q === 'finalizado'){
+  
+  setCarrito([])
+ }
+
+ 
+}, [])
 
 const [guitarras, setGuitarras] = useState([])
 const [curso, setCurso] = useState()
@@ -66,6 +78,7 @@ const getData = async ()=>{
      guitarrasBuscador={guitarrasBuscador}
      busqueda={busqueda}
      setBusqueda={setBusqueda}
+    
   >
 
      <main className='contenedor'>

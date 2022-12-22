@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from '../styles/Header.module.css'
 import {useRouter} from 'next/router'
-import { useState } from "react"
+
 import Buscador from "./Buscador"
 
 
@@ -15,7 +15,7 @@ const Header = ({guitarra,
           }) => {
 
 
-/* const [busqueda, setBusqueda]=useState('') */  
+
 
   
   const router = useRouter()
@@ -87,31 +87,6 @@ const Header = ({guitarra,
     </header>
   )
 }
-/* export async function getServerSideProps(){
 
-  const urlGuitarras = `${process.env.API_URL}/guitarras`
-  const urlCursos = `${process.env.API_URL}/cursos` 
- 
- const [resGuitarras, resCursos] = await Promise.all([
-     fetch(urlGuitarras),
-     fetch(urlCursos)
- ])
- 
- const [guitarras, cursos] = await Promise.all([
-     resGuitarras.json(),
-     resCursos.json()
- ])
- console.log('guitarras',guitarras)
- console.log('guitarras',cursos)
- 
- return{
-     props:{
-         guitarras,
-         cursos
- 
-     }
- }
- 
- } */
 
 export default Header

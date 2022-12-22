@@ -1,17 +1,28 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+
 import Layout from '../components/Layout'
 import styles from '../styles/Carrito.module.css'
 
-const Carrito = ({carrito,actualizarCantidad,borrarRegistro}) => {
+const Carrito = ({carrito,actualizarCantidad,borrarRegistro,setCarrito}) => {
   console.log('desde carrito component', carrito) 
   
 const [total, setTotal]= useState(0)   
+const [finalizado, setFinalizado]=useState(false) 
+
+const router = useRouter()
 
 useEffect(()=>{
       const cantidadTotal= carrito.reduce((total, producto)=> total +(producto.cantidad*producto.precio),0)
       setTotal(cantidadTotal)
 },[carrito])
+
+useEffect(()=>{
+  if(finalizado) router.replace('/finalizado')
+
+},[finalizado])
+
   return (
       <Layout pagina = {'carrito de compra'}
       carrito = {carrito}>
@@ -92,13 +103,13 @@ useEffect(()=>{
               </div>
                 
             </div>
-            <button className={styles.button} type='button'>Confirmar pedido y pagar</button>
+            <button onClick={()=>setFinalizado(true)} className={styles.button} type='button'>Confirmar pedido y pagar</button>
             </>
 
           ): <p>Carrito vacio</p>}
 
           </div>
-
+      
        </main>
 
       </Layout>

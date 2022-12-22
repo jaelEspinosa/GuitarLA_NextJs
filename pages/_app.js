@@ -65,6 +65,7 @@ if (carrito.length !== 0){
 
 
   return <Component {...pageProps}
+  setCarrito = { setCarrito }
   carrito = {carrito}
   agregarCarrito = {agregarCarrito}
   actualizarCantidad = {actualizarCantidad}
